@@ -100,3 +100,4 @@ def scrape_twitter(search_term: str):
         people_tweet_search = scrape_people_search(search_term, page)
 
         return top_tweet_search
+    

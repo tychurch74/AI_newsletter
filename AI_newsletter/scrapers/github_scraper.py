@@ -18,10 +18,4 @@ def get_github_repos(date, language='python'):
                 repo_list.append(d_tmp)
         return repo_list
 
-date = "2023-04-30"
-repo_list = get_github_repos(date)
-for repo in repo_list:
-        print(repo['name'])
-        print(repo['URL'])
-        print('---')
 

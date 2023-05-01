@@ -11,11 +11,7 @@ def is_today_monday():
     today = datetime.date.today()
     return today.weekday() == 0
 
-if is_today_monday():
-    print("Today is Monday!")
-    print(f"Last Monday's date was: {get_seven_days_ago_date()}")
-else:
-    print("Today is not Monday.")
+
 
 
 

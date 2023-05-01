@@ -7,8 +7,6 @@ from langchain.document_loaders import PyPDFLoader
 from langchain.chains import ChatVectorDBChain
 from langchain.llms import OpenAI
 
-keyword_1 = "artificial intelligence"
-keyword_2 = "natural language processing"
 
 def get_arxiv_papers(keyword_1, keyword_2, max_results=5):
     search = arxiv.Search(

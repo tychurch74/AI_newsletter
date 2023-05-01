@@ -1,4 +1,4 @@
-from python_project_template.base import NAME
+from AI_newsletter.base import NAME
 
 
 def test_base():

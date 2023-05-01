@@ -138,3 +138,6 @@ scratchpad.json
 scratchpad.txt
 scratchpad.csv
 
+# download data
+AI_newsletter/papers/*
+

@@ -16,7 +16,10 @@ def research_papers():
     for result in result_pdf_dict:
         title = (result['title'])
         date = (result['date'])
-        authors = (result['authors'])
+        author_list = (result['authors'])
+        authors = []
+        for author in author_list:
+            authors.append(author.name)
         summary = (result['summary'])
         article_text = (f"Paper Title: {title} \nPublish Date: {date} \nSummary: {summary}")
         article = chatGPT_writer(article_text)

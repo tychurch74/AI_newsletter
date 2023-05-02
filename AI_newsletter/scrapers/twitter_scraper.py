@@ -1,3 +1,5 @@
+import json
+
 from parsel import Selector
 from playwright.sync_api import sync_playwright
 from playwright.sync_api._generated import Page
@@ -85,19 +87,62 @@ def scrape_top_search(query: str, page: Page):
 
 def scrape_people_search(query: str, page: Page):
     """scrape people search Twitter page for related users"""
+    page.goto(f"https://twitter.com/i/flow/login")
+    page.wait_for_selector("//div[@data-testid='LoginForm_Login_Button']")  # wait for content to load
+    page.click("//div[@data-testid='LoginForm_Login_Button']")
     page.goto(f"https://twitter.com/search?q={query}&src=typed_query&f=user")
     page.wait_for_selector("//div[@data-testid='UserCell']")  # wait for content to load
     profiles = parse_profiles(Selector(page.content()))
     return profiles
 
 
-def scrape_twitter(search_term: str):
+def scrape_twitter(search_term):
     with sync_playwright() as pw:
+        print("The following will open a browser window. Please log in to Twitter if prompted.")
+        input("Press Enter to continue...")
         browser = pw.chromium.launch(headless=False)
         page = browser.new_page(viewport={"width": 720, "height": 480})
+        search_keyword = search_term
+        tweet_search = scrape_top_search(search_keyword, page)
+        json_object = json.dumps(tweet_search, indent=4)
+ 
+        with open("tweets.json", "w") as outfile:
+            outfile.write(json_object)
         
-        top_tweet_search = scrape_top_search(search_term, page)
-        people_tweet_search = scrape_people_search(search_term, page)
+        return tweet_search
 
-        return top_tweet_search
+
+def format_twitter_results(keyword):    
+    scrape_twitter(keyword)
+    with open('tweets.json', 'r') as openfile:
+        json_object = json.load(openfile)
+    tweet_search = json_object
+    result_tweet_dict = []
+    for result in tweet_search:
+        tweet_text = result['text']
+        tweet_handle = result['url']
+        tweet_url = result['url']
+        ds_result = {'text': tweet_text, 'handle': tweet_handle, 'url': tweet_url}
+        result_tweet_dict.append(ds_result)
+    print(f"formatted dictionary: {result_tweet_dict}")
+    return result_tweet_dict
     
+"""
+[
+  {
+    "text": "The best AI tools you need to know about!\n\n#ai #ChatGPT #Google",
+    "username": "Ishan Sharma",
+    "handle": "@Ishansharma7390",
+    "datetime": "2023-02-07T11:32:28.000Z",
+    "verified": false,
+    "url": "/Ishansharma7390/status/1622921232646635520",
+    "video": "https://video.twimg.com/ext_tw_video/1622921135833890817/pu/vid/720x1280/L5GkN9mSB8WPdxDz.mp4?tag=12",
+    "video_thumb": "https://pbs.twimg.com/ext_tw_video_thumb/1622921135833890817/pu/img/c2XpGEntF_wfHDXA.jpg",
+    "likes": "667",
+    "retweets": "171",
+    "replies": "26",
+    "views": "21982"
+  }
+]
+[{'text': tweet_text, 'handle': tweet_handle, 'url': tweet_url}]
+"""

@@ -19,7 +19,7 @@ def get_arxiv_papers(keyword_1, keyword_2, max_results=5):
     result_pdf_dict = []
     for result in search.results():
         result_pdf_list.append(result.pdf_url)
-        ds_result = {'title': result.title, 'date': result.published, 'authors': result.authors, 'summary': result.summary}
+        ds_result = {'title': result.title, 'date': result.published, 'authors': result.authors, 'summary': result.summary, 'link': result.pdf_url}
         result_pdf_dict.append(ds_result)
 
     pdf_filenames = []

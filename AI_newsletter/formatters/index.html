@@ -78,20 +78,21 @@
               </td>
             </tr>
             <tr>
-              <td style="padding:30px;background-color:#404040;">
+              <td style="padding:30px;background-color:#404040; background-image: url('https://static.vecteezy.com/system/resources/previews/001/632/362/original/abstract-geometric-hexagonal-pattern-on-metal-black-background-free-vector.jpg'); background-size: cover; background-position: center center;">
+                {% for date in date %}
                 <h1
                   style="margin-top:0;text-align:center;color: #ffffff; font-size:32px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">
-                  AI Newsletter</h1>
+                  AI Newsletter {{ date.today }}</h1> {% endfor %}
                 <p style="margin:0; color: #ffffff;">Paragraph 1 Lorem ipsum dolor sit amet, consectetur adipiscing
                   elit. In tempus adipiscing
-                  felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, <a href="http://www.example.com/"
+                  felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, <a href="https://www.vecteezy.com/free-vector/black-pattern-background"
                     style="color:#297bd8;text-decoration:underline;">eget accumsan dictum</a>, nisi libero ultricies
                   ipsum, in posuere mauris neque at erat.</p>
               </td>
             </tr>
             <tr>
               <td style="padding:0;font-size:24px;line-height:28px;font-weight:bold;">
-                <a href="http://www.example.com/" style="text-decoration:none;"><img src="images/1200x800-2.png"
+                <a href="http://www.example.com/" style="text-decoration:none;"><img src="AI_newsletter/formatters/images/1200x800-2.png"
                     width="600" alt=""
                     style="width:100%;height:auto;display:block;border:none;text-decoration:none;color:#363636;"></a>
               </td>
@@ -119,7 +120,7 @@
                   <p style="margin-top:0;margin-bottom:8px;color: #ffffff;">{{ paper.date }}</p>
                   <p style="margin-top:0;margin-bottom:8px;color: #ffffff;">{{ paper.authors }}</p>
                   <p style="margin-top:0;margin-bottom:18px;color: #ffffff;">{{ paper.article }}</p>
-                  <p style="margin-top:0;margin-bottom:60px;"><a href="https://example.com/"
+                  <p style="margin-top:0;margin-bottom:60px;"><a href="{{ paper.link }}"
                       style="background: #297bd8; text-decoration: none; padding: 10px 25px; color: #ffffff; border-radius: 4px; display:inline-block; mso-padding-alt:0;text-underline-color:#ff3884"><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%;mso-text-raise:20pt">&nbsp;</i><![endif]--><span
                         style="mso-text-raise:10pt;font-weight:bold;">Read more
                       </span><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%">&nbsp;</i><![endif]--></a>
@@ -153,8 +154,43 @@
                     Top Github Repos</h1>
                   {% for repo in repos %}
                   <p style="margin-top:18;margin-bottom:18px;"><a href="{{ repo.url }}"
-                      style="background: #36373ccc; text-decoration: none; padding: 10px 10px; color: #ffffff; border-radius: 4px; display:inline-block; mso-padding-alt:0;text-underline-color:#ff3884"><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%;mso-text-raise:20pt">&nbsp;</i><![endif]--><span
+                      style="text-decoration: none; padding: 10px 10px; color: #297bd8; border-radius: 4px; display:inline-block; mso-padding-alt:0;text-underline-color:#297bd8"><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%;mso-text-raise:20pt">&nbsp;</i><![endif]--><span
                         style="mso-text-raise:10pt;font-weight:bold;">{{ repo.name }}
+                      </span><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%">&nbsp;</i><![endif]--></a>
+                  </p>
+                  {% endfor %}
+                </div>
+                <!--[if mso]>
+                </td>
+                </tr>
+                </table>
+                <![endif]-->
+              </td>
+            </tr>
+            <tr>
+              <td
+                style="padding:35px 30px 11px 30px;font-size:0;background-color:#36373ccc;border-bottom:1px solid #f0f0f5;border-color:rgba(201,201,207,.35);">
+                <!--[if mso]>
+                <table role="presentation" width="100%">
+                <tr>
+                <td style="width:145px;" align="left" valign="top">
+                <![endif]-->
+
+                <!--[if mso]>
+                </td>
+                <td style="width:395px;padding-bottom:20px;" valign="top">
+                <![endif]-->
+                <div class="col-lge"
+                  style="display:inline-block;width:100%;max-width:395px;vertical-align:top;padding-bottom:20px;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
+                  <h1
+                    style="margin-top:0;margin-bottom:0;color: #ffffff; font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">
+                    Top News</h1>
+                  {% for new in news %}
+                  
+                  <h3 style="margin-top:0px;margin-bottom:18px;color: #ffffff;">{{ new.number }}. {{ new.title }}</h3>
+                  <p style="margin-top:0;margin-bottom:60px;"><a href="{{ new.url }}"
+                      style="background: #297bd8; text-decoration: none; padding: 10px 25px; color: #ffffff; border-radius: 4px; display:inline-block; mso-padding-alt:0;text-underline-color:#ff3884"><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%;mso-text-raise:20pt">&nbsp;</i><![endif]--><span
+                        style="mso-text-raise:10pt;font-weight:bold;">Read more
                       </span><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%">&nbsp;</i><![endif]--></a>
                   </p>
                   {% endfor %}
@@ -177,9 +213,9 @@
             <tr>
               <td style="padding:30px;text-align:center;font-size:12px;background-color:#404040;color:#cccccc;">
                 <p style="margin:0 0 8px 0;"><a href="http://www.facebook.com/" style="text-decoration:none;"><img
-                      src="images/facebook.png" width="40" height="40" alt="f"
+                      src="AI_newsletter/formatters/images/icon-facebook.png" width="40" height="40" alt="f"
                       style="display:inline-block;color:#cccccc;"></a> <a href="http://www.twitter.com/"
-                    style="text-decoration:none;"><img src="images/twitter.png" width="40" height="40" alt="t"
+                    style="text-decoration:none;"><img src="AI_newsletter/formatters/images/icon-twitter.png" width="40" height="40" alt="t"
                       style="display:inline-block;color:#cccccc;"></a></p>
                 <p style="margin:0;font-size:14px;line-height:20px;">&reg; Someone, Somewhere 2021<br><a class="unsub"
                     href="http://www.example.com/" style="color:#cccccc;text-decoration:underline;">Unsubscribe

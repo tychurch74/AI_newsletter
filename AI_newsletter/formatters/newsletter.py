@@ -3,24 +3,21 @@ from weasyprint import HTML
 import os
 
 
-def newsletter_gen(papers_list, repos_list):
+def newsletter_gen(todays_date, papers_list, repos_list, news_list):
     # Mock data for testing
+    date = [{'today': todays_date}]
+    
     papers = papers_list
-
-    tweets = [
-        "Tweet 1",
-        "Tweet 2",
-        "Tweet 3",
-    ]
-
+    
     repos = repos_list
-
+    
+    news = news_list
     # Set up Jinja2 environment and load template
     env = Environment(loader=FileSystemLoader(os.path.dirname(__file__)))
     template = env.get_template("index.html")
 
     # Render the template with data
-    rendered_newsletter = template.render(papers=papers, tweets=tweets, repos=repos)
+    rendered_newsletter = template.render(date=date, papers=papers, news=news, repos=repos)
 
     # Save the rendered newsletter to an HTML file
     with open("newsletter.html", "w") as f:

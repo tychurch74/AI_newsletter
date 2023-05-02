@@ -1,5 +1,12 @@
 """
 AI_newsletter base module.
+
+To-do:
+    * Add more writers for different types of articles
+    * Use a server for image hosting
+    * Add more scrapers for more sites
+    * Add DALLE image generation to create splash images
+    * Cleanup code
 """
 from utils.date_info import get_seven_days_ago_date, is_today_monday, convert_todays_date
 from scrapers.arxiv_scraper import get_arxiv_papers

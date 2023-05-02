@@ -59,7 +59,7 @@
 
 <body style="margin:0;padding:0;word-spacing:normal;background-color:#939297;">
   <div role="article" aria-roledescription="email" lang="en"
-    style="text-size-adjust:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;background-color:#939297;">
+    style="text-size-adjust:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;background-color:#909dbe;">
     <table role="presentation" style="width:100%;border:none;border-spacing:0;">
       <tr>
         <td align="center" style="padding:0;">
@@ -78,22 +78,23 @@
               </td>
             </tr>
             <tr>
-              <td style="padding:30px;background-color:#404040; background-image: url('https://static.vecteezy.com/system/resources/previews/001/632/362/original/abstract-geometric-hexagonal-pattern-on-metal-black-background-free-vector.jpg'); background-size: cover; background-position: center center;">
+              <td
+                style="padding:30px;background-color:#404040; background-size: cover; background-position: center center;">
                 {% for date in date %}
                 <h1
-                  style="margin-top:0;text-align:center;color: #ffffff; font-size:32px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">
-                  AI Newsletter {{ date.today }}</h1> {% endfor %}
-                <p style="margin:0; color: #ffffff;">Paragraph 1 Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit. In tempus adipiscing
-                  felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, <a href="https://www.vecteezy.com/free-vector/black-pattern-background"
-                    style="color:#297bd8;text-decoration:underline;">eget accumsan dictum</a>, nisi libero ultricies
-                  ipsum, in posuere mauris neque at erat.</p>
+                  style="margin-top:0;text-align:center;color: #ffffff; font-size:42px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">
+                  The Markdown</h1>
+                <h1
+                  style="margin-top:0;text-align:center;color: #ffffff; font-size:28px;line-height:1px;font-weight:bold;letter-spacing:-0.02em;">
+                  {{ date.today }}</h1> {% endfor %}
+                <p style="margin:0; text-align:center; color: #ffffff;">Placeholder text until AI introduction writer is
+                  implemented.</p>
               </td>
             </tr>
             <tr>
               <td style="padding:0;font-size:24px;line-height:28px;font-weight:bold;">
-                <a href="http://www.example.com/" style="text-decoration:none;"><img src="AI_newsletter/formatters/images/1200x800-2.png"
-                    width="600" alt=""
+                <a href="http://www.example.com/" style="text-decoration:none;"><img
+                    src="AI_newsletter/formatters/images/1200x800-2.png" width="600" alt=""
                     style="width:100%;height:auto;display:block;border:none;text-decoration:none;color:#363636;"></a>
               </td>
             </tr>
@@ -186,7 +187,7 @@
                     style="margin-top:0;margin-bottom:0;color: #ffffff; font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">
                     Top News</h1>
                   {% for new in news %}
-                  
+
                   <h3 style="margin-top:0px;margin-bottom:18px;color: #ffffff;">{{ new.number }}. {{ new.title }}</h3>
                   <p style="margin-top:0;margin-bottom:60px;"><a href="{{ new.url }}"
                       style="background: #297bd8; text-decoration: none; padding: 10px 25px; color: #ffffff; border-radius: 4px; display:inline-block; mso-padding-alt:0;text-underline-color:#ff3884"><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%;mso-text-raise:20pt">&nbsp;</i><![endif]--><span
@@ -204,10 +205,7 @@
             </tr>
             <tr>
               <td style="padding:30px;background-color:#36373ccc;">
-                <p style="margin:0;color: #ffffff;">Paragraph 4 Duis sit amet accumsan nibh, varius tincidunt lectus.
-                  Quisque commodo, nulla ac
-                  feugiat cursus, arcu orci condimentum tellus, vel placerat libero sapien et libero. Suspendisse auctor
-                  vel orci nec finibus.</p>
+                <p style="margin:0;color: #ffffff;">Placeholder text until AI conclusion writer is implemented.</p>
               </td>
             </tr>
             <tr>
@@ -215,9 +213,9 @@
                 <p style="margin:0 0 8px 0;"><a href="http://www.facebook.com/" style="text-decoration:none;"><img
                       src="AI_newsletter/formatters/images/icon-facebook.png" width="40" height="40" alt="f"
                       style="display:inline-block;color:#cccccc;"></a> <a href="http://www.twitter.com/"
-                    style="text-decoration:none;"><img src="AI_newsletter/formatters/images/icon-twitter.png" width="40" height="40" alt="t"
-                      style="display:inline-block;color:#cccccc;"></a></p>
-                <p style="margin:0;font-size:14px;line-height:20px;">&reg; Someone, Somewhere 2021<br><a class="unsub"
+                    style="text-decoration:none;"><img src="AI_newsletter/formatters/images/icon-twitter.png" width="40"
+                      height="40" alt="t" style="display:inline-block;color:#cccccc;"></a></p>
+                <p style="margin:0;font-size:14px;line-height:20px;">&reg; Ty Church, Somewhere 2023<br><a class="unsub"
                     href="http://www.example.com/" style="color:#cccccc;text-decoration:underline;">Unsubscribe
                     instantly</a></p>
               </td>

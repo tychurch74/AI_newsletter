@@ -2,6 +2,7 @@ from jinja2 import Environment, FileSystemLoader
 from weasyprint import HTML
 import os
 
+
 def newsletter_gen(papers_list, repos_list):
     # Mock data for testing
     papers = papers_list
@@ -16,7 +17,7 @@ def newsletter_gen(papers_list, repos_list):
 
     # Set up Jinja2 environment and load template
     env = Environment(loader=FileSystemLoader(os.path.dirname(__file__)))
-    template = env.get_template("template.html")
+    template = env.get_template("index.html")
 
     # Render the template with data
     rendered_newsletter = template.render(papers=papers, tweets=tweets, repos=repos)

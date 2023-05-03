@@ -12,7 +12,7 @@ from utils.date_info import get_seven_days_ago_date, convert_todays_date
 from scrapers.arxiv_scraper import get_arxiv_papers
 from scrapers.github_scraper import get_github_repos
 from scrapers.news_scraper import get_top_10_ai_news
-from writers_room.chatGPT_writer import research_paper_writer
+from writers_room.chatGPT_writer import research_paper_writer, quote_writer
 from formatters.newsletter import newsletter_gen
 
 
@@ -78,6 +78,7 @@ def main():
 
     newsletter_gen(
         convert_todays_date(),
+        quote_writer(),
         research_papers(run_as_test),
         github_repos(last_week_date),
         get_top_10_ai_news(),

@@ -87,8 +87,8 @@
                 <h1
                   style="margin-top:0;text-align:center;color: #ffffff; font-size:28px;line-height:1px;font-weight:bold;letter-spacing:-0.02em;">
                   {{ date.today }}</h1> {% endfor %}
-                <p style="margin:0; text-align:center; color: #ffffff;">Placeholder text until AI introduction writer is
-                  implemented.</p>
+                  {% for splash in splash %}
+                  <p style="margin:0; text-align:center; color: #ffffff;">{{ splash.splash_msg }}</p>{% endfor %}
               </td>
             </tr>
             <tr>

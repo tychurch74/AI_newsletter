@@ -8,9 +8,10 @@ from langchain.chains import ChatVectorDBChain
 from langchain.llms import OpenAI
 
 
-def get_arxiv_papers(keyword_1, keyword_2, max_results=5):
+def get_arxiv_papers(search_terms=("artificial intelligence", "natural language processing"), max_results=5):
+    search_query = " AND ".join(f'"{term}"' for term in search_terms)
     search = arxiv.Search(
-        query=f"{keyword_1} AND \"{keyword_2}\"",
+        query=search_query,
         max_results=max_results,
         sort_by=arxiv.SortCriterion.SubmittedDate,
         sort_order=arxiv.SortOrder.Descending,

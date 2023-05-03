@@ -142,3 +142,6 @@ scratchpad.html
 # download data
 AI_newsletter/papers/*
 
+# data
+newsletter.pdf
+

@@ -5,18 +5,20 @@ from weasyprint import HTML
 
 
 
-def newsletter_gen(todays_date, splash_image, papers_list, repos_list, news_list):
+def newsletter_gen(todays_date, splash_image, splash_msg, papers_list, repos_list, news_list):
     """
     Generate newsletter.html and newsletter.pdf files.
 
     Args:
         todays_date (str): Today's date in Month Day, Year format.
+        splash_msg (str): Splash message for the newsletter.
         papers_list (list): List of dictionaries containing the title, date, authors, GPT written article, and link for each paper.
         repos_list (list): List of dictionaries containing the name and url of each repo.
         news_list (list): List of dictionaries containing the number, title, description, and url of each article.
     """
     date = [{'today': todays_date}]
     splash_img = splash_image
+    splash = [{'splash_msg': splash_msg}]
     papers = papers_list
     repos = repos_list
     news = news_list
@@ -24,7 +26,7 @@ def newsletter_gen(todays_date, splash_image, papers_list, repos_list, news_list
     env = Environment(loader=FileSystemLoader(os.path.dirname(__file__)))
     template = env.get_template("index.html")
 
-    rendered_newsletter = template.render(date=date, splash_image=splash_img, papers=papers, news=news, repos=repos)
+    rendered_newsletter = template.render(date=date, splash_image=splash_img, splash=splash, papers=papers, news=news, repos=repos)
     
     with open("newsletter.html", "w") as f:
         f.write(rendered_newsletter)

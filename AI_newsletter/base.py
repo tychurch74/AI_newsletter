@@ -13,6 +13,7 @@ from scrapers.arxiv_scraper import get_arxiv_papers
 from scrapers.github_scraper import get_github_repos
 from scrapers.news_scraper import get_top_10_ai_news
 from writers_room.chatGPT_writer import research_paper_writer
+from writers_room.image_gen import image_html_gen
 from formatters.newsletter import newsletter_gen
 
 
@@ -78,6 +79,7 @@ def main():
 
     newsletter_gen(
         convert_todays_date(),
+        image_html_gen(),
         research_papers(run_as_test),
         github_repos(last_week_date),
         get_top_10_ai_news(),

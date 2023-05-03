@@ -1,4 +1,4 @@
-"""Python setup.py for python_project_template package"""
+"""Python setup.py for AI_newsletter package"""
 import io
 import os
 from setuptools import find_packages, setup
@@ -6,7 +6,7 @@ from setuptools import find_packages, setup
 
 def read(*paths, **kwargs):
     """Read the contents of a text file safely.
-    >>> read("python_project_template", "VERSION")
+    >>> read("AI_newsletter", "VERSION")
     '0.1.0'
     >>> read("README.md")
     ...
@@ -30,17 +30,15 @@ def read_requirements(path):
 
 
 setup(
-    name="python_project_template",
-    version=read("python_project_template", "VERSION"),
-    description="Awesome python_project_template created by tychurch74",
-    url="https://github.com/tychurch74/python_project_template/",
+    name="AI_newsletter",
+    version=read("AI_newsletter", "VERSION"),
+    description="Awesome AI_newsletter created by tychurch74",
+    url="https://github.com/tychurch74/AI_newsletter/",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
     author="tychurch74",
     packages=find_packages(exclude=["tests", ".github"]),
     install_requires=read_requirements("requirements.txt"),
-    entry_points={
-        "console_scripts": ["python_project_template = python_project_template.__main__:main"]
-    },
+    entry_points={"console_scripts": ["AI_newsletter = AI_newsletter.__main__:main"]},
     extras_require={"test": read_requirements("requirements-test.txt")},
 )

@@ -9,7 +9,7 @@ This instructions are for linux base systems. (Linux, MacOS, BSD, etc.)
 
 - On github interface click on `Fork` button.
 - Clone your fork of this repo. `git clone git@github.com:YOUR_GIT_USERNAME/AI_newsletter.git`
-- Enter the directory `cd python_project_template`
+- Enter the directory `cd AI_newsletter`
 - Add upstream repo `git remote add upstream https://github.com/tychurch74/AI_newsletter.git`
 
 ## Setting up your own virtual environment

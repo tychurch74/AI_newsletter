@@ -26,20 +26,20 @@ install:          ## Install the project in dev mode.
 
 .PHONY: fmt
 fmt:              ## Format code using black & isort.
-	$(ENV_PREFIX)isort python_project_template/
-	$(ENV_PREFIX)black -l 79 python_project_template/
+	$(ENV_PREFIX)isort AI_newsletter/
+	$(ENV_PREFIX)black -l 79 AI_newsletter/
 	$(ENV_PREFIX)black -l 79 tests/
 
 .PHONY: lint
 lint:             ## Run pep8, black, mypy linters.
-	$(ENV_PREFIX)flake8 python_project_template/
-	$(ENV_PREFIX)black -l 79 --check python_project_template/
+	$(ENV_PREFIX)flake8 AI_newsletter/
+	$(ENV_PREFIX)black -l 79 --check AI_newsletter/
 	$(ENV_PREFIX)black -l 79 --check tests/
-	$(ENV_PREFIX)mypy --ignore-missing-imports python_project_template/
+	$(ENV_PREFIX)mypy --ignore-missing-imports AI_newsletter/
 
 .PHONY: test
 test: lint        ## Run tests and generate coverage report.
-	$(ENV_PREFIX)pytest -v --cov-config .coveragerc --cov=python_project_template -l --tb=short --maxfail=1 tests/
+	$(ENV_PREFIX)pytest -v --cov-config .coveragerc --cov=AI_newsletter -l --tb=short --maxfail=1 tests/
 	$(ENV_PREFIX)coverage xml
 	$(ENV_PREFIX)coverage html
 
@@ -78,7 +78,7 @@ virtualenv:       ## Create a virtual environment.
 release:          ## Create a new tag for release.
 	@echo "WARNING: This operation will create s version tag and push to github"
 	@read -p "Version? (provide the next x.y.z semver) : " TAG
-	@echo "$${TAG}" > python_project_template/VERSION
+	@echo "$${TAG}" > AI_newsletter/VERSION
 	@$(ENV_PREFIX)gitchangelog > HISTORY.md
 	@git add python_project_template/VERSION HISTORY.md
 	@git commit -m "release: version $${TAG} 🚀"
@@ -98,7 +98,7 @@ switch-to-poetry: ## Switch to poetry package manager.
 	@echo "Switching to poetry ..."
 	@if ! poetry --version > /dev/null; then echo 'poetry is required, install from https://python-poetry.org/'; exit 1; fi
 	@rm -rf .venv
-	@poetry init --no-interaction --name=a_flask_test --author=rochacbruno
+	@poetry init --no-interaction --name=a_flask_test --author=tychurch74
 	@echo "" >> pyproject.toml
 	@echo "[tool.poetry.scripts]" >> pyproject.toml
 	@echo "python_project_template = 'python_project_template.__main__:main'" >> pyproject.toml
@@ -116,7 +116,7 @@ init:             ## Initialize the project based on an application template.
 	@./.github/init.sh
 
 
-# This project has been generated from rochacbruno/python-project-template
-# __author__ = 'rochacbruno'
-# __repo__ = https://github.com/rochacbruno/python-project-template
-# __sponsor__ = https://github.com/sponsors/rochacbruno/
+# This project has been generated from tychurch74/AI_newsletter
+# __author__ = 'tychurch74'
+# __repo__ = https://github.com/tychurch74/AI_newsletter
+# __sponsor__ = https://github.com/sponsors/tychurch74/

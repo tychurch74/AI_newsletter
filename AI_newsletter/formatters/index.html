@@ -117,7 +117,7 @@
                   style="display:inline-block;width:100%;max-width:395px;vertical-align:top;padding-bottom:20px;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
                   <h1
                     style="margin-top:0;margin-bottom:0;color: #ffffff; font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">
-                    Recent Research Papers</h1>
+                    Recent Research Papers:</h1>
                   {% for paper in papers %}
                   <h3 style="margin-top:18px;margin-bottom:8px;color: #ffffff;">{{ paper.title }}</h3>
                   <p style="margin-top:0;margin-bottom:8px;color: #ffffff;">{{ paper.date }}</p>
@@ -154,7 +154,7 @@
                   style="display:inline-block;width:100%;max-width:395px;vertical-align:top;padding-bottom:20px;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
                   <h1
                     style="margin-top:0;margin-bottom:0; color: #ffffff; font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">
-                    Top Github Repos</h1>
+                    Top Github Repos:</h1>
                   {% for repo in repos %}
                   <p style="margin-top:18;margin-bottom:18px;"><a href="{{ repo.url }}"
                       style="text-decoration: none; padding: 10px 10px; color: #297bd8; border-radius: 4px; display:inline-block; mso-padding-alt:0;text-underline-color:#297bd8"><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%;mso-text-raise:20pt">&nbsp;</i><![endif]--><span
@@ -186,12 +186,13 @@
                 <div class="col-lge"
                   style="display:inline-block;width:100%;max-width:395px;vertical-align:top;padding-bottom:20px;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
                   <h1
-                    style="margin-top:0;margin-bottom:0;color: #ffffff; font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">
-                    Top News</h1>
+                    style="margin-top:0;margin-bottom:18px;color: #ffffff; font-size:26px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">
+                    Top News:</h1>
                   {% for new in news %}
 
-                  <h3 style="margin-top:0px;margin-bottom:18px;color: #ffffff;">{{ new.number }}. {{ new.title }}</h3>
-                  <p style="margin-top:0;margin-bottom:60px;"><a href="{{ new.url }}"
+                  <h3 style="margin-top:0px;margin-bottom:12px;color: #ffffff;">{{ new.number }}. {{ new.title }}</h3>
+                  <p style="margin:0;color: #ffffff;">{{ new.description }}</p>
+                  <p style="margin-top:8px;margin-bottom:60px;"><a href="{{ new.url }}"
                       style="background: #297bd8; text-decoration: none; padding: 10px 25px; color: #ffffff; border-radius: 4px; display:inline-block; mso-padding-alt:0;text-underline-color:#ff3884"><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%;mso-text-raise:20pt">&nbsp;</i><![endif]--><span
                         style="mso-text-raise:10pt;font-weight:bold;">Read more
                       </span><!--[if mso]><i style="letter-spacing: 25px;mso-font-width:-100%">&nbsp;</i><![endif]--></a>

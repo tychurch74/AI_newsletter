@@ -9,6 +9,18 @@ from langchain.llms import OpenAI
 
 
 def get_arxiv_papers(search_terms=("artificial intelligence", "natural language processing"), max_results=5):
+    """
+    Get research papers from arxiv, download pdf versions, and return a list dictionaries containing information from each paper.
+
+    Args:
+        search_terms (tuple, optional): Search terms to use for arxiv. Defaults to ("artificial intelligence", "natural language processing").
+        max_results (int, optional): Maximum number of results to return from arxiv. Defaults to 5.
+
+    Returns:
+        list: List of generated pdf filenames.
+        list: List of dictionaries containing the title, date, authors, summary, and link for each paper.
+    """
+    
     search_query = " AND ".join(f'"{term}"' for term in search_terms)
     search = arxiv.Search(
         query=search_query,
@@ -32,6 +44,8 @@ def get_arxiv_papers(search_terms=("artificial intelligence", "natural language 
     
     return pdf_filenames, result_pdf_dict
 
+
+# Additional functions for searching pdf results. To be implemented in future versions.
 
 def search_pdf(pdf_filename):
     loader = PyPDFLoader(pdf_filename)

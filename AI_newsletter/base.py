@@ -1,12 +1,12 @@
 """
 AI_newsletter base module.
 
-To-do:
-    * Add more writers for different types of articles
-    * Use a server for image hosting
-    * Add more scrapers for more sites
-    * Add and integrate DALLE image generation to create splash images
-    * Cleanup code
+This module contains the main function for the AI newsletter.
+
+Functions:
+    research_papers: Get research papers from arxiv, feed summaries to GPT-3.5, and format them into a list of dictionaries for newsletter generation.
+    github_repos: Get top 10 github repos from the last week.
+    main: Main function for the AI newsletter.
 """
 from utils.date_info import get_seven_days_ago_date, convert_todays_date
 from scrapers.arxiv_scraper import get_arxiv_papers
@@ -17,6 +17,19 @@ from formatters.newsletter import newsletter_gen
 
 
 def research_papers(testing, search_terms=("artificial intelligence", "natural language processing"), max_results=5):
+    """
+    Get research papers from arxiv, feed summaries to GPT-3.5, and format them into a list of dictionaries for newsletter generation.
+
+    Args:
+        testing (bool): Whether or not to run as a test (using dummy data). If False, will feed data to OpenAI's API.
+        search_terms (tuple, optional): Search terms to use for arxiv. Defaults to ("artificial intelligence", "natural language processing").
+        max_results (int, optional): Maximum number of results to return from arxiv. Defaults to 5.
+
+    Returns:
+        list: List of dictionaries containing the title, date, authors, GPT written article, and link for each paper (if testing=False).
+
+    """
+    
     pdf_filenames, result_pdf_dict = get_arxiv_papers(search_terms, max_results=max_results)
     papers = []
 
@@ -39,6 +52,16 @@ def research_papers(testing, search_terms=("artificial intelligence", "natural l
 
 
 def github_repos(date):
+    """
+    Get top 10 github repos from the last week.
+
+    Args:
+        date (str): Date in YYYY-MM-DD format.
+
+    Returns:
+        list: List of dictionaries containing the name and url of each repo.
+    
+    """
     repo_list = get_github_repos(date)
     top_repos = [{"url": repo["URL"], "name": f"{count+1}- {repo['name']}"} for count, repo in enumerate(repo_list)]
     return top_repos

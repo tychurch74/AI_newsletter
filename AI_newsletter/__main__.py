@@ -1,6 +1,6 @@
-"""Entry point for python_project_template."""
+"""Entry point for AI Newsletter."""
 
-from .cli import main  # pragma: no cover
+from base import main
 
-if __name__ == "__main__":  # pragma: no cover
+if __name__ == "__main__":
     main()

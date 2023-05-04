@@ -13,7 +13,6 @@ cloud_name = cdn_cred[0]
 api_key = cdn_cred[1]
 api_secret = cdn_cred[2]
 
-print(cdn_cred[0])
 cloudinary.config(cloud_name, api_key, api_secret)
 
 openai_api_key = os.environ["OPENAI_API_KEY"]
